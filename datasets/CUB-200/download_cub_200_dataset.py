@@ -16,8 +16,8 @@ TRANSFORM = transforms.Compose([
 ])
 
 # Constants
-INPUT_FOLDER = "./CUB-200/CUB_200_2011"
-OUTPUT_FOLDER = "./CUB-200/resized_images_256"
+INPUT_FOLDER = "./CUB_200_2011"
+OUTPUT_FOLDER = "./resized_images_256"
 
 def resize_and_save_images(input_folder, output_folder):
     """

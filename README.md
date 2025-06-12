@@ -82,7 +82,7 @@ viscoin env -> use method from repo
 The dataset used is downloaded from : https://www.vision.caltech.edu/datasets/cub_200_2011/
 
 ```bash
-cd datasets
+cd datasets/CUB-200
 wget https://data.caltech.edu/records/65de6-vp158/files/CUB_200_2011.tgz
 tar -xvzf CUB_200_2011.tgz
 python download_cub_200_dataset.py
@@ -93,7 +93,7 @@ python download_cub_200_dataset.py
 The dataset used is downloaded from : https://huggingface.co/datasets/1aurent/NCT-CRC-HE
 
 ```bash
-cd datasets
+cd datasets/NCT-CRC-HE
 python download_nct_crc_he_dataset.py
 ```
 If needed adjust the path to store the data in download_nct_crc_he_dataset.py andpython download_cub_200_dataset.py. 
