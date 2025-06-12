@@ -36,6 +36,12 @@ Scripts in the root /datasets folder were created for this project.
 
 
 ````bash
+├── datasets # scripts to download and preprocess CUB-200 and NCT-CRC-HE datasets - personal work 
+│
+├── VisCoIN # main folder for viscoin training
+│   ├── viscoin     # scripts for viscoin training, adapted from the original repo
+│   └── stylegan2_ada # code from the original repo, unmodified  
+│
 ├── ../stylegan2_ada  # Pytorch implementation of StyleGAN2 ADA
 │
 ├── cli            # Command line functions
@@ -64,15 +70,26 @@ Scripts in the root /datasets folder were created for this project.
 
 ## Set up
 
-We recommand using two separate environements for the GAN training and for other tasks. 
+We recommand using two separate environements for the GAN training and for other tasks (classsifier training and VisCoIN training).
 
-CUDA version ?
+* GAN training environment
 
-viscoin env -> use method from repo
+We report here dependencies that worked for us, adapted from recommendations in the original repository (https://github.com/NVlabs/stylegan2-ada-pytorch):
 
+````bash
+conda create -n env_gan python=3.7
+conda activate env_gan
+conda install pytorch==1.7.1 torchvision==0.8.2 cudatoolkit=11.0 -c pytorch
+pip install click requests tqdm pyspng ninja imageio-ffmpeg==0.4.3 psutil scipy 
+````
 
+* VisCoIN training environment
 
-
+We report here the method from the original repository (https://github.com/GnRlLeclerc/VisCoIN):
+```bash
+conda env create -f conda.yml  # Create the `viscoin` environment
+conda activate viscoin         # Activate it
+```
 
 
 ## Get dataset and preprocess images
@@ -100,18 +117,32 @@ The path to store the data can be adjusted in download_nct_crc_he_dataset.py and
 
 ## GAN training
 
-train generator
+Activate the GAN environment:
 ````bash
-source env_gan bin/activate
+conda activate env_gan
 ````
 
-Get the starting checkpoint :
+Get the starting checkpoint that was used in this project:
+````bash
+cd VisCoIN
+mkdir checkpoints
+cd ./checkpoints
+wget https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada-pytorch/pretrained/paper-fig7c-training-set-sweeps/ffhq140k-paper256-ada.pkl
+````
 
-starting GAN : 
+Train the GAN with 1M images on the CUB-200 dataset:
 ````bash
 cd /stylegan2_ada
 
-python train.py --outdir=training-runs --data=path_to_datasets/CUB200/CUB_200_2011/resized_images_256_for_gan --gpus=1 --resume=path_to_VisCoIN/checkpoints/ffhq140k-paper256-ada.pkl --kimg=500 --snap=10
+python train.py --outdir=training-runs --data=path_to_datasets/CUB200/resized_images_256 --gpus=1 --resume=path_to_VisCoIN/checkpoints/ffhq140k-paper256-ada.pkl --kimg=1000 --snap=10
+````
+
+
+Train the GAN with 1M images on the NCT-CRC-HE dataset:
+````bash
+cd /stylegan2_ada
+
+python train.py --outdir=training-runs --data=path_to_datasets/NCT-CRC-HE/resized_images_256 --gpus=1 --resume=path_to_VisCoIN/checkpoints/ffhq140k-paper256-ada.pkl --kimg=1000 --snap=10
 ````
 
 
@@ -120,7 +151,7 @@ python train.py --outdir=training-runs --data=path_to_datasets/CUB200/CUB_200_20
 Next steps
 
 ````bash
-source env_viscoin bin/activate
+conda activate viscoin
 ````
 train classifier
 
@@ -128,6 +159,7 @@ train classifier
 
 ## VisCoIN training
 
+compatible uniquement avec version de CUDA 10 ou 11 (non compatible avec CUDA 12)
 
 train viscoin
 
