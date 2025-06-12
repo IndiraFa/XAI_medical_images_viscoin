@@ -96,7 +96,7 @@ The dataset used is downloaded from : https://huggingface.co/datasets/1aurent/NC
 cd datasets/NCT-CRC-HE
 python download_nct_crc_he_dataset.py
 ```
-If needed adjust the path to store the data in download_nct_crc_he_dataset.py andpython download_cub_200_dataset.py. 
+The path to store the data can be adjusted in download_nct_crc_he_dataset.py and in download_cub_200_dataset.py if needed. 
 
 ## GAN training
 
