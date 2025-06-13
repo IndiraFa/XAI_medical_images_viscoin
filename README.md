@@ -18,7 +18,7 @@ obtained some results indicating that the methodology is relevant, the overall a
 likely needs to be adaped to better suit the characteristics of medical images in order to produce more
 usable outcomes.
 
-The detailed report of the experiments is available in ```XAI_medical_images_viscoin/VisCoIN_implementation_medical_images.pdf```
+The detailed report of the experiments is available in ```VisCoIN_implementation_medical_images.pdf```
 
 Link to the original VisCoIN publication: https://arxiv.org/abs/2407.01331
 
@@ -37,7 +37,7 @@ This code was adapted and modified for the classifier and VisCoIN training, to a
 
 Scripts in the root ```/datasets``` folder were created for this project. 
 
- <strong>The code that was written for this project is tagged as "PERSONAL WORK"</strong>
+ <strong>The code that was written for this project is tagged as "PERSONAL WORK" below.</strong>
 
  Global structure of the repository:
 
@@ -179,8 +179,7 @@ python train_classifier_NCT_CRC_HE.py # or train_classifier_CUB.py
 
 ## VisCoIN training
 
-You will need to use a Cuda version of 10 or 12 (incompatibility with CUDA 12)
-compatible uniquement avec version de CUDA 10 ou 11 (non compatible avec CUDA 12)
+You will need to use a Cuda version of 10 or 11 (incompatibility with CUDA 12)
 
 ````bash
 cd VisCoIN
@@ -189,5 +188,5 @@ python train_viscoin_NCT_CRC_HE.py # or train_viscoin_CUB.py
 
 ## Visualize results 
 
-A notebook is provided to display results after training of the classifier, the GAN and the VisCOIn model on the NCT-CRC-HE dataset : ```analysis.ipynb```.
+A notebook is provided to display results after training of the classifier, the GAN and the VisCoIN model on the NCT-CRC-HE dataset : ```analysis.ipynb```.
 
