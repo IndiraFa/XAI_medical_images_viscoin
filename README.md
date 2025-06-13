@@ -30,11 +30,15 @@ Link to the original StyleGan repository: https://github.com/NVlabs/stylegan2-ad
 This code was used with no modifications for the generator training.
 
 Link to the original VisCoIN repository: https://github.com/GnRlLeclerc/VisCoIN
-Code was adapted and modified for the classifier and VisCoIN training, to allow for new dataset usage and variation in experiments.
 
-Scripts in the root /datasets folder were created for this project. 
+This code was adapted and modified for the classifier and VisCoIN training, to allow for new dataset usage and variation in experiments.
 
-Global structure of the repository - the code that was written for this project is tagged as "PERSONAL WORK"
+Scripts in the root ```/datasets``` folder were created for this project. 
+
+ <strong>The code that was written for this project is tagged as "PERSONAL WORK"</strong>
+
+ Global structure of the repository:
+
 
 ```bash
 datasets # PERSONAL WORK - scripts to download and preprocess CUB-200 and NCT-CRC-HE datasets
@@ -86,7 +90,7 @@ VisCoIN # main folder for viscoin training
 
 ## Set up
 
-We recommand using two separate environements for the GAN training and for other tasks (classsifier training and VisCoIN training).
+We recommend using two separate environments for the GAN training and for other tasks (classsifier training and VisCoIN training).
 
 * GAN training environment
 
@@ -183,5 +187,5 @@ python train_viscoin_NCT_CRC_HE.py # or train_viscoin_CUB.py
 
 ## Visualize results 
 
-A notebook is provided to display results after training of the classifier, the GAN and the VisCOIn model on the NCT-CRC-HE dataset : analysis.ipynb.
+A notebook is provided to display results after training of the classifier, the GAN and the VisCOIn model on the NCT-CRC-HE dataset : ```analysis.ipynb```.
 
