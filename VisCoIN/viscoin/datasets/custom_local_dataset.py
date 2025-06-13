@@ -8,6 +8,7 @@ import os
 from PIL import Image
 from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
+from viscoin.datasets.transforms import RESNET_TEST_TRANSFORM, RESNET_TRAIN_TRANSFORM
 
 class CustomImageDataset(Dataset):
     def __init__(self, image_dir, transform=None):
