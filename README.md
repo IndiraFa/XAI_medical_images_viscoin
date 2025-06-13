@@ -18,6 +18,8 @@ obtained some results indicating that the methodology is relevant, the overall a
 likely needs to be adaped to better suit the characteristics of medical images in order to produce more
 usable outcomes.
 
+The detailed report of the experiments is available in ```XAI_medical_images_viscoin/VisCoIN_implementation_medical_images.pdf```
+
 Link to the original VisCoIN publication: https://arxiv.org/abs/2407.01331
 
 Link to the original StyleGan publication: https://arxiv.org/abs/2006.06676 
