@@ -86,7 +86,9 @@ VisCoIN # main folder for viscoin training
 ├── train_classifier_CUB.py  # PERSONAL WORK - script to train the classifier on the CUB-200 dataset
 ├── train_classifier_NCT_CRC_HE.py # PERSONAL WORK - script to train the classifier on the NCT_CRC_HE dataset
 ├── train_viscoin_CUB.py  # PERSONAL WORK - script to train the VisCoIN model on the CUB-200 dataset
-└── train_viscoin_NCT_CRC_HE.py  # PERSONAL WORK - script to train the VisCoIN model on the NCT_CRC_HE dataset
+├── train_viscoin_NCT_CRC_HE.py  # PERSONAL WORK - script to train the VisCoIN model on the NCT_CRC_HE datase
+├── analysis.ipynb  # PERSONAL WORK - notebook to analyse the results after training
+└── VisCoIN_implementation_medical_images.pdf  # PERSONAL WORK - complete report of the project
 ````
 
 
