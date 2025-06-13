@@ -1,8 +1,8 @@
 """
-From : https://github.com/GnRlLeclerc/VisCoIN
+adapted from https://github.com/GnRlLeclerc/VisCoIN by Indira FABRE
 Training function for the whole viscoin model.
 """
-
+import os
 import itertools
 from dataclasses import dataclass
 
@@ -43,6 +43,9 @@ from viscoin.training.utils import (
 )
 from viscoin.utils.logging import get_logger
 
+## for debugging : 
+import torchvision.utils as vutils
+
 
 @dataclass
 class TrainingParameters:
@@ -74,6 +77,21 @@ class TrainingParameters:
     # Gradient accumulation
     gradient_accumulation = 1  # Step value of 1: no accumulation
 
+def get_unique_filename(base_path):
+    """
+    Returns a unique file path by appending _1, _2, ... if needed.
+    """
+    if not os.path.exists(base_path):
+        return base_path
+
+    base, ext = os.path.splitext(base_path)
+    counter = 1
+    new_path = f"{base}_{counter}{ext}"
+    while os.path.exists(new_path):
+        counter += 1
+        new_path = f"{base}_{counter}{ext}"
+    return new_path
+
 
 def train_viscoin(
     # Models
@@ -88,6 +106,7 @@ def train_viscoin(
     # Training parameters
     params: TrainingParameters,
     device: str,
+    name: str,
 ):
     """Train the VisCoIN ensemble on the CUB or FunnyBirds dataset, using the parameters defined in the paper.
 
@@ -168,6 +187,7 @@ def train_viscoin(
         encoded_concepts, extra_info = concept_extractor.forward(hidden_states[-3:])
         explainer_classes = explainer.forward(encoded_concepts)
 
+
         ###################################################
         #                 LOSS COMPUTATION                #
         ###################################################
@@ -187,16 +207,33 @@ def train_viscoin(
         rebuilt_images, gan_latents = viscoin_gan.forward(
             z1=encoded_concepts, z2=extra_info, return_latents=True
         )
-        rebuilt_classes, _ = classifier.forward(rebuilt_images)
+    	# Storage of the rebuilt images for monitoring
 
-        rec_loss = reconstruction_loss(
-            rebuilt_images,
-            all_images,
-            rebuilt_classes,
-            classes,
-            params.gamma,
-            params.beta,
-        )
+        if i % 1000 == 0:  # Save every 1000 iterations
+            with torch.no_grad():
+                save_dir = "/home/ids/fabre-24/viscoin/VisCoIN/debug_images_norm"
+                vutils.save_image(rebuilt_images[:8], get_unique_filename(f"{save_dir}/rebuilt_{i}_{name}.png"), nrow=4, normalize=True, scale_each=True)
+                #vutils.save_image(fake_images[:8], get_unique_filename(f"{save_dir}/fake_{i}.png"), nrow=4, normalize=True, scale_each=True)
+                vutils.save_image(real_images[:8], get_unique_filename(f"{save_dir}/real_{i}_{name}.png"), nrow=4, normalize=True, scale_each=True)
+            print("images saved in debug_images_norm")
+
+
+        with torch.no_grad():
+            rebuilt_classes, _ = classifier.forward(rebuilt_images)
+
+
+        try:
+            rec_loss = reconstruction_loss(
+                rebuilt_images,
+                all_images,
+                rebuilt_classes,
+                classes,
+                params.gamma,
+                params.beta,
+            )
+        except Exception as e:
+            print("Reconstruction loss failed:", e)
+            rec_loss = torch.tensor(0.0).to(device)
 
         gan_loss = gan_regularization_loss(gan_latents, viscoin_gan)
 
@@ -257,7 +294,7 @@ def train_viscoin(
                 concept_extractor,
                 explainer,
                 viscoin_gan,
-                f"viscoin{i//20_000}-{params.iterations//20_000}.pth",
+                f"viscoin_256_CRC_{name}_{i//20_000}-{params.iterations//20_000}.pth",
             )
 
         # Every 25_000 iterations, generate 200 amplified samples (~ faithfullness)

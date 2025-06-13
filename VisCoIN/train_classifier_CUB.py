@@ -38,7 +38,7 @@ def main():
 
     # Save model
     print("Saving best model...")
-    torch.save(model.state_dict(), "cub_classifier.pth")
+    torch.save(model.state_dict(), "checkpoints/cub_classifier.pth")
     print("Done.")
 
 if __name__ == "__main__":

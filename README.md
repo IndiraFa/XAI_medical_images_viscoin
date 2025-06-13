@@ -34,45 +34,10 @@ Code was adapted and modified for the classifier and VisCoIN training, to allow 
 
 Scripts in the root /datasets folder were created for this project. 
 
-Global structure of the repository:
-
-````bash
-├── datasets # scripts to download and preprocess CUB-200 and NCT-CRC-HE datasets - personal work 
-│
-├── VisCoIN # main folder for viscoin training
-│   ├── viscoin     # scripts for viscoin training, adapted from the original repo
-│   └── stylegan2_ada # code from the original repo, unmodified  
-│
-├── ../stylegan2_ada  # Pytorch implementation of StyleGAN2 ADA
-│
-├── cli            # Command line functions
-│
-├── datasets       # Pytorch dataloaders for every dataset
-│   ├── cub                 # CUB dataset loader
-│   └── transforms          # Standard dataset preprocessing transformations
-│
-├── models         # Model definitions
-│   ├── classifiers         # Classifier model (`f`)
-│   ├── concept_extractors  # From classifier latent to concepts (`Psi` in VisCoIN)
-│   ├── explainers          # From concepts to class (`Theta` in VisCoIN)
-│   └── gan                 # StyleGAN implementation (modified stylegan2_ada)
-│
-├── testing        # Testing functions
-│   ├── classifiers         # Testing function for the classifier
-│   └── viscoin             # Testing functions for the viscoin ensemble
-│
-└── training       # Training functions
-    ├── classifiers         # Training function for the classifier
-    ├── losses              # Loss functions
-    ├── utils               # Training utilities
-    └── viscoin             # Training function for the viscoin ensemble
-````
-
-
-Detailed structure of the VisCoIN folder:
+Global structure of the repository - the code that was written for this project is tagged as "PERSONAL WORK"
 
 ```bash
-datasets # scripts to download and preprocess CUB-200 and NCT-CRC-HE datasets - PERSONAL WORK 
+datasets # PERSONAL WORK - scripts to download and preprocess CUB-200 and NCT-CRC-HE datasets
 ├── CUB-200
 │   └── download_cub_200_dataset.py # PERSONAL WORK 
 ├── NCT-CRC-HE
@@ -82,9 +47,10 @@ VisCoIN # main folder for viscoin training
 │
 ├── viscoin # scripts for viscoin training, adapted from the original VisCoIN repo
 │        │
-│        ├── datasets       # Pytorch dataloaders for every dataset
+│        ├── datasets       # Pytorch dataloaders
 │        │   ├── cub                 # CUB dataset loader
 │        │   └── transforms          # Standard dataset preprocessing transformations
+│        │   └── custom_local_dataset # PERSONAL WORK - loader for local NCT-CRC_HE dataset
 │        │
 │        ├── models         # Model definitions
 │        │   ├── classifiers         # Classifier model (`f`)
@@ -96,18 +62,26 @@ VisCoIN # main folder for viscoin training
 │        │   ├── classifiers         # Testing function for the classifier
 │        │   └── viscoin             # Testing functions for the viscoin ensemble
 │        │
-│        └── training       # Training functions
-│            ├── classifiers         # Training function for the classifier
-│            ├── losses              # Loss functions
-│            ├── utils               # Training utilities
-│            └── viscoin             # Training function for the viscoin ensemble
+│        ├── training       # Training functions
+│        │   ├── classifiers         # Training function for the classifier
+│        │   ├── losses              # Loss functions
+│        │   ├── utils               # Training utilities
+│        │   ├── viscoin      # PERSONAL WORK - adaptation of the training function for the viscoin
+│        │   └── viscoin_custom   # PERSONAL WORK - adaptation for custom parameters
+│        │
+│        └── utils       # Utility functions
+│            ├── gradcam         
+│            ├── images              
+│            ├── logging              
+│            ├── maths               
+│            ├── metrics               
+│            └── types        
 │
-├── train_classifier_CUB.py  # script to train the classifier on the CUB-200 dataset - PERSONAL WORK
-├── train_classifier_NCT_CRC_HE.py # script to train the classifier on the NCT_CRC_HE dataset - PERSONAL WORK
-├── train_viscoin_CUB.py  # script to train the VisCoIN model on the CUB-200 dataset - PERSONAL WORK
-└── train_viscoin_NCT_CRC_HE.py  # script to train the VisCoIN model on the NCT_CRC_HE dataset - PERSONAL WORK
+├── train_classifier_CUB.py  # PERSONAL WORK - script to train the classifier on the CUB-200 dataset
+├── train_classifier_NCT_CRC_HE.py # PERSONAL WORK - script to train the classifier on the NCT_CRC_HE dataset
+├── train_viscoin_CUB.py  # PERSONAL WORK - script to train the VisCoIN model on the CUB-200 dataset
+└── train_viscoin_NCT_CRC_HE.py  # PERSONAL WORK - script to train the VisCoIN model on the NCT_CRC_HE dataset
 ````
-
 
 
 ## Set up
