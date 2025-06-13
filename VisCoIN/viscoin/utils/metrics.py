@@ -1,4 +1,6 @@
-"""VisCoIN metrics"""
+"""
+From : https://github.com/GnRlLeclerc/VisCoIN
+VisCoIN metrics"""
 
 import torch
 import torch.nn.functional as F

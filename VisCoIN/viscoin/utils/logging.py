@@ -1,4 +1,6 @@
-"""Logging utilities to follow the training of a model."""
+"""
+From : https://github.com/GnRlLeclerc/VisCoIN
+Logging utilities to follow the training of a model."""
 
 import logging
 

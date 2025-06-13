@@ -1,4 +1,6 @@
-"""Classifier training functions.
+"""
+From : https://github.com/GnRlLeclerc/VisCoIN
+Classifier training functions.
 
 Best parameters:
 - Adam optimizer

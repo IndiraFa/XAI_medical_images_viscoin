@@ -1,4 +1,6 @@
-"""GradCAM heatmap analysis"""
+"""
+From : https://github.com/GnRlLeclerc/VisCoIN
+GradCAM heatmap analysis"""
 
 import numpy as np
 from torch import Tensor, nn

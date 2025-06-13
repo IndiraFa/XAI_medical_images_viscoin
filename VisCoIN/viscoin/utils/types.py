@@ -1,4 +1,6 @@
-"""Utility types"""
+"""
+From : https://github.com/GnRlLeclerc/VisCoIN
+Utility types"""
 
 from dataclasses import dataclass
 from typing import Any, Literal

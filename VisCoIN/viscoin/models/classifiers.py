@@ -1,4 +1,6 @@
-"""Classifier models `f` to be explained. In VisCoIN, we aim at explaining ResNet-based classifiers.
+"""
+from : https://github.com/GnRlLeclerc/VisCoIN
+Classifier models `f` to be explained. In VisCoIN, we aim at explaining ResNet-based classifiers.
 The classifiers are ResNet-18 or ResNet-50 models with a custom fully connected layer head on top for classification
 with a custom amount of output classes.
 """

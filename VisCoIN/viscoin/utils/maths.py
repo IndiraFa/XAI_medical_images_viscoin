@@ -1,4 +1,6 @@
-"""Utility math functions"""
+"""
+From : https://github.com/GnRlLeclerc/VisCoIN
+Utility math functions"""
 
 import numpy as np
 

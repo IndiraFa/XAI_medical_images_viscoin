@@ -1,6 +1,6 @@
 """
 Script to train a classifer on the CUB 200 dataset resized to 256x256,
-taking into account the imbalance between classes, based on viscoin.training.classifiers
+based on viscoin.training.classifiers from https://github.com/GnRlLeclerc/VisCoIN
 
 Author: Indira FABRE
 """

@@ -1,4 +1,6 @@
-"""Loss functions definitions."""
+"""
+From : https://github.com/GnRlLeclerc/VisCoIN
+Loss functions definitions."""
 
 import lpips
 import torch

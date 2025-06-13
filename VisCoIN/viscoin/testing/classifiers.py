@@ -1,4 +1,6 @@
-"""Classifiers testing functions"""
+"""
+from : https://github.com/GnRlLeclerc/VisCoIN
+Classifiers testing functions"""
 
 import torch
 from torch import nn

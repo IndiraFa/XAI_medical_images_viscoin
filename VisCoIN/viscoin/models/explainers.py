@@ -1,4 +1,5 @@
 """
+from : https://github.com/GnRlLeclerc/VisCoIN
 The explainer models (called `h` in FLINT, or `Theta` in VisCoIN)
 compute an output class from the latent concept dictionary spaces.
 

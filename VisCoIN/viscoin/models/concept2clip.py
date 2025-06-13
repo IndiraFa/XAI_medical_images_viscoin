@@ -1,4 +1,5 @@
 """ 
+from : https://github.com/GnRlLeclerc/VisCoIN
 Model to convert concept space embeddings to clip embeddings
 """
 

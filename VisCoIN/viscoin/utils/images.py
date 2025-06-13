@@ -1,4 +1,6 @@
-"""Image utilities"""
+"""
+From : https://github.com/GnRlLeclerc/VisCoINs
+Image utilities"""
 
 import cv2
 import matplotlib.pyplot as plt

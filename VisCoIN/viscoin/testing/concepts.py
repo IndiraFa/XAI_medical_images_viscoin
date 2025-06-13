@@ -1,4 +1,6 @@
-"""Testing concept repartition in viscoin"""
+"""
+from : https://github.com/GnRlLeclerc/VisCoIN
+Testing concept repartition in viscoin"""
 
 from dataclasses import dataclass
 

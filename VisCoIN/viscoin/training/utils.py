@@ -1,4 +1,6 @@
-"""Utility functions for training."""
+"""
+From : https://github.com/GnRlLeclerc/VisCoIN
+Utility functions for training."""
 
 from typing import Iterable, Iterator, TypeVar
 

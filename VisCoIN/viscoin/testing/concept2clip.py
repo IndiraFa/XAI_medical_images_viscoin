@@ -1,4 +1,6 @@
-"""Classifiers testing functions"""
+"""
+from :https://github.com/GnRlLeclerc/VisCoIN
+Classifiers testing functions"""
 
 import clip
 import numpy as np

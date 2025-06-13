@@ -1,4 +1,5 @@
 """
+from : https://github.com/GnRlLeclerc/VisCoIN
 The concept extractor models (called `Psi` in FLINT & VisCoIN)
 compute latent concept embeddings from latent layers of an original classifier `f`.
 

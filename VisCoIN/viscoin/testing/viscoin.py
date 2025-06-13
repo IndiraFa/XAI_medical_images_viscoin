@@ -1,4 +1,6 @@
-"""Testing functions for the viscoin ensemble."""
+"""
+from : https://github.com/GnRlLeclerc/VisCoIN
+Testing functions for the viscoin ensemble."""
 
 # pyright: reportPossiblyUnboundVariable=false
 

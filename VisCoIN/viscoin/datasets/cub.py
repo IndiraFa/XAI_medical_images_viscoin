@@ -6,6 +6,8 @@ Be sure to put the "attributes.txt" file in the "CUB_200_2011" folder.
 
 The dataset contains images of birds, class labels, bounding boxes and parts annotations.
 We do not load the parts annotations.
+
+Adapted by Indira Fabre
 """
 
 import os
@@ -47,9 +49,7 @@ class CUB_200_2011(Dataset):
             transform: Additional optional transformations to perform on loaded images. Will default to the appropriate one given the mode.
         """
 
-        self.dataset_path = os.path.join(
-            kagglehub.dataset_download("wenewone/cub2002011", "CUB_200_2011")
-        )
+        self.dataset_path = "datasets/CUB-200/resized_images_256"
         self.mode: Mode = mode
         self.image_shape = image_shape
         self.bbox_only = bbox_only

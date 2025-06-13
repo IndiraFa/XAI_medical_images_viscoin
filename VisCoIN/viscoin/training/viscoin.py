@@ -1,4 +1,5 @@
 """
+From : https://github.com/GnRlLeclerc/VisCoIN
 Training function for the whole viscoin model.
 """
 

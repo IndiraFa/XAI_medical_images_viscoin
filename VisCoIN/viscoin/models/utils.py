@@ -1,4 +1,6 @@
-"""Model utilities."""
+"""
+from : https://github.com/GnRlLeclerc/VisCoIN
+Model utilities."""
 
 from dataclasses import dataclass
 
