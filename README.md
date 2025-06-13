@@ -170,19 +170,18 @@ conda activate viscoin
 cd VisCoIN
 python train_classifier_NCT_CRC_HE.py # or train_classifier_CUB.py
 ````
-xxx parameters to adjust
-
-save in checkpoints - à ajouter dans script
 
 ## VisCoIN training
 
+You will need to use a Cuda version of 10 or 12 (incompatibility with CUDA 12)
 compatible uniquement avec version de CUDA 10 ou 11 (non compatible avec CUDA 12)
 
-train viscoin
-
-ajuster les paths
+````bash
+cd VisCoIN
+python train_viscoin_NCT_CRC_HE.py # or train_viscoin_CUB.py
+````
 
 ## Visualize results 
 
-(make a notebook)
+A notebook is provided to display results after training of the classifier, the GAN and the VisCOIn model on the NCT-CRC-HE dataset : analysis.ipynb.
 
