@@ -12,7 +12,7 @@ import os
 
 # Constants
 DATASET_NAME = "1aurent/NCT-CRC-HE"
-DATASET_PATH = "./NCT-CRC-HE"
+DATASET_PATH = "."
 RESIZED_PATH = os.path.join(DATASET_PATH, "resized_images_256")
 TARGET_SPLITS = {"NCT_CRC_HE_100K", "CRC_VAL_HE_7K"}
 IMAGE_SIZE = (256, 256)

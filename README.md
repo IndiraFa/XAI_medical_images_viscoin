@@ -34,6 +34,7 @@ Code was adapted and modified for the classifier and VisCoIN training, to allow 
 
 Scripts in the root /datasets folder were created for this project. 
 
+Global structure of the repository:
 
 ````bash
 ├── datasets # scripts to download and preprocess CUB-200 and NCT-CRC-HE datasets - personal work 
@@ -66,7 +67,48 @@ Scripts in the root /datasets folder were created for this project.
     ├── utils               # Training utilities
     └── viscoin             # Training function for the viscoin ensemble
 ````
--> ajouter dossier datasets
+
+
+Detailed structure of the VisCoIN folder:
+
+```bash
+datasets # scripts to download and preprocess CUB-200 and NCT-CRC-HE datasets - PERSONAL WORK 
+├── CUB-200
+│   └── download_cub_200_dataset.py # PERSONAL WORK 
+├── NCT-CRC-HE
+│   └── download_nct_crc_he_dataset.py # PERSONAL WORK
+VisCoIN # main folder for viscoin training
+├── stylegan2_ada # code from the original NVIDIA repo, unmodified 
+│
+├── viscoin # scripts for viscoin training, adapted from the original VisCoIN repo
+│        │
+│        ├── datasets       # Pytorch dataloaders for every dataset
+│        │   ├── cub                 # CUB dataset loader
+│        │   └── transforms          # Standard dataset preprocessing transformations
+│        │
+│        ├── models         # Model definitions
+│        │   ├── classifiers         # Classifier model (`f`)
+│        │   ├── concept_extractors  # From classifier latent to concepts (`Psi` in VisCoIN)
+│        │   ├── explainers          # From concepts to class (`Theta` in VisCoIN)
+│        │   └── gan                 # StyleGAN implementation (modified stylegan2_ada)
+│        │
+│        ├── testing        # Testing functions
+│        │   ├── classifiers         # Testing function for the classifier
+│        │   └── viscoin             # Testing functions for the viscoin ensemble
+│        │
+│        └── training       # Training functions
+│            ├── classifiers         # Training function for the classifier
+│            ├── losses              # Loss functions
+│            ├── utils               # Training utilities
+│            └── viscoin             # Training function for the viscoin ensemble
+│
+├── train_classifier_CUB.py  # script to train the classifier on the CUB-200 dataset - PERSONAL WORK
+├── train_classifier_NCT_CRC_HE.py # script to train the classifier on the NCT_CRC_HE dataset - PERSONAL WORK
+├── train_viscoin_CUB.py  # script to train the VisCoIN model on the CUB-200 dataset - PERSONAL WORK
+└── train_viscoin_NCT_CRC_HE.py  # script to train the VisCoIN model on the NCT_CRC_HE dataset - PERSONAL WORK
+````
+
+
 
 ## Set up
 
@@ -148,14 +190,15 @@ python train.py --outdir=training-runs --data=path_to_datasets/NCT-CRC-HE/resize
 
 ## Classifier training
 
-Next steps
 
 ````bash
 conda activate viscoin
+cd VisCoIN
+python train_classifier_NCT_CRC_HE.py # or train_classifier_CUB.py
 ````
-train classifier
+xxx parameters to adjust
 
-
+save in checkpoints - à ajouter dans script
 
 ## VisCoIN training
 
@@ -163,5 +206,9 @@ compatible uniquement avec version de CUDA 10 ou 11 (non compatible avec CUDA 12
 
 train viscoin
 
-visualize results (make a notebook)
+ajuster les paths
+
+## Visualize results 
+
+(make a notebook)
 
